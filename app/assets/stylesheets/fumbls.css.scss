@@ -2,6 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1 {
-  color: #1B5FBE;
+@import "compass/css3";
+
+@mixin left($dist) {
+  float: left;
+  margin-left: $dist * 2;
+}
+
+$primaryColor: blue;
+$border-width: 5px;
+
+.fumbl{ 
+	h1 {
+  	color: $primaryColor;
+	}
+	.body {
+		@include left(10px);
+		background-color: lighten($primaryColor, 30%);
+		@include opacity(0.5);
+		border: 4px solid darken($primaryColor, 25%);
+		margin: 20px;
+		float: left;
+		@include single-box-shadow;
+	}
+	.body-clone {
+		@extend .body;
+	}
 }
